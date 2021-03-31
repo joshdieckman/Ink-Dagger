@@ -73,7 +73,7 @@
 				header("location: employee.php");
 			}else{
 				array_push($errors, "The username/password combination is invalid");
-				header("location: login.php");
+				header("location: welcome.php");
 			}
 		}
 	}
