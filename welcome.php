@@ -31,13 +31,13 @@
                                 width: 100%;
                                 padding: 20px;
                         }
-                        h1{
-                                color: yellow;
-                                text-shadow: 2px 2px 5px black;
+                        h1, h3{
+                                color: red;
+                                text-shadow: 2px 2px black;
                         }
                         p{
-                                color: yellow;
-                                text-shadow: 2px 2px 5px black;
+                                color: red;
+                                text-shadow: 2px 2px black;
                         }
 			.column{
                                 width: 95%;
@@ -53,14 +53,16 @@
 			.btn{
                                 width: 30%;
                                 padding: 10px;
-                                color: black;
-                                background-color: red;
+                                color: red;
                         }
 			label{
                                 padding: 5px;
-                                color: yellow;
-                                text-shadow: 2px 2px 5px black;
+                                color: red;
+                                text-shadow: 2px 2px black;
                         }
+          #username, #password, #submit{
+          		background-color: transparent;
+          }
 			@media only screen and (min-width: 500px) {
 				.form-control{
 					display: block;
@@ -159,13 +161,13 @@
           <div class="wrapper">
            <div class="col-md-12">
 			<center>
-                                <div class="logo">
-                                        <a href="/dagger/index.php"><img src="/images/tattoodoor.png" alt="inkndagger.com" height="450px" width="450px"></a>
-                                </div>
-                               <br>
+                <div class="logo">
+                    <a href="/dagger/index.php"><img src="/images/tattoodoor.png" alt="inkndagger.com" height="450px" width="450px"></a>
+                </div>
+                <br>
 				<div id="signin">
 					<h1>Login</h1>
-					<p>Please fill in your credentials to login.</p>
+					<h3>Please fill in your credentials to login.</h3>
 					<form action="welcome.php" method="post">
                       	<?php include('errors.php'); ?>
 						<div class="form-group">
@@ -178,7 +180,7 @@
 							<input id="checkbox" type="checkbox" onclick="myFunction()"><p>Show Password</p>
 						</div>
 						<div class="form-group">
-							<input type="submit" name="login" class="btn" value="Login">
+                          	<button type="submit" id="submit" name="login" class="btn btn-danger">Log In</button>
 						</div>
 						<p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
 					</form>
