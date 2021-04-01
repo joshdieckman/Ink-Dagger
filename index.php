@@ -31,8 +31,9 @@
                         width: 100%;
                 }
           h1{
-          	color: white;
+          	color: red;
             margin: 15px 0;
+            text-shadow: 2px 2px black;
           }
             #myCarousel{
                 width: 100%;
@@ -328,7 +329,7 @@
                                                 <hr>
                                                 <br>
 						<div class="artistry">
-							<h2 style="color: white;">Artistry</h2>
+							<h2 style="color: red; text-shadow: 2px 2px black;">Artistry</h2>
 							<?php
 								$sql= "SELECT * FROM images ORDER BY id ASC";
 								$result = mysqli_query($link,$sql);
