@@ -3,20 +3,11 @@
 
 	include('config.php');
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-      	<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0LRF1W1TY"></script>
-		<script>
-  			window.dataLayer = window.dataLayer || [];
-  			function gtag(){dataLayer.push(arguments);}
-  			gtag('js', new Date());
 
-  			gtag('config', 'G-Y0LRF1W1TY');
-		</script>
 		<meta charset="UTF-8">
         <title>Ink N Dagger Tattoo Co.</title>
         <link rel="icon" href="/images/tattoodoor.png">
@@ -39,19 +30,30 @@
                 .container{
                         width: 100%;
                 }
+          h1{
+          	color: white;
+            margin: 15px 0;
+          }
             #myCarousel{
                 width: 100%;
             }
             #slide{
                 height: 500px;
             }
+          .carousel-indicators{
+          	z-index: 1;
+          }
 			.employee{
 				width: 100%;
-				height: 150px;
-                                background-image: url("/images/banner.png");
-                                background-position: center;
-                                background-repeat: no-repeat;
-                                box-shadow: 4px 3px 8px 1px black;
+                background-image: url("/images/banner.png");
+                background-position: center;
+                background-repeat: repeat;
+                box-shadow: 4px 3px 8px 1px black;
+              	position: fixed;
+              	left: 0;
+              	right: 0;
+              	top: 0;
+              	z-index: 10;
 			}
                         .employee a{
                                 color: gray;
@@ -92,11 +94,9 @@
 			}
                   .footer{
                         width: 100%;
-			margin-top: 20px;
-			height: 200px;
                         background-image: url("/images/banner.png");
                         background-position: center;
-                        background-repeat: no-repeat;
+                        background-repeat: repeat;
                         color: gray;
                   }
                   .address{
@@ -104,7 +104,6 @@
                           float: left;
                           text-align: center;
                           width: 45%;
-                          padding: 30px;
                   }
                   .watermark{
                           display: inline-block;
@@ -114,15 +113,16 @@
                   }
                   .verticalline {
                           border-left: 1px solid gray;
-                          height: 150px;
                           width: 3%;
                           display: inline-block;
-                          margin-top: 25px;
                   }
                   @media only screen and (max-width: 768px) {
                           body{
                                 font-size: 24px;
                           }
+                    		.container{
+                  				margin-top: 250px;
+                			}
                           .employee{
                                   height: 250px;
                           }
@@ -134,7 +134,7 @@
                                   height: 300px;
                           }
                           .footer{
-                                  height: 450px;
+                                  height: 350px;
                           }
                           .address, .watermark{
                                   width: 100%;
@@ -159,6 +159,9 @@
                           body{
                                 font-size: 24px;
                           }
+                    	.container{
+                  				margin-top: 250px;
+                			}
                           .employee{
                                   height: 250px;
                           }
@@ -170,7 +173,7 @@
                                   height: 300px;
                           }
                           .footer{
-                                  height: 450px;
+                                  height: 350px;
                           }
                           .address, .watermark{
                                   width: 100%;
@@ -205,6 +208,9 @@
                           #slide{
                                   height: 500px;
                           }
+                    		.container{
+                  				margin-top: 125px;
+                			}
                           .employee{
                                   height: 125px;
                           }
@@ -219,33 +225,28 @@
                                   margin: 15px 20px;
                           }
                           .footer{
-                                width: 100%;
-                                margin-top: 20px;
-                                height: 225px;
-                                background-image: url("/images/banner.png");
-                                background-position: center;
-                                background-repeat: no-repeat;
-                                color: gray;
+                                height: 175px;
                           }
                           .address{
-                                  display: inline-block;
-                                  float: left;
-                                  text-align: center;
-                                  width: 45%;
-                                  padding: 30px;
+                            	display: inline-block;
+                          		float: left;
+                          		text-align: center;
+                          		width: 45%;
+                            	margin-top: 20px;
                           }
                           .watermark{
-                                  display: inline-block;
-                                  float: right;
-                                  width: 45%;
-                                  text-align: center;
+                            	display: inline-block;
+                          		float: right;
+                          		width: 45%;
+                          		text-align: center;
+								margin-top: 20px;
                           }
                           .verticalline {
-                                  border-left: 1px solid gray;
-                                  height: 175px;
-                                  width: 3%;
-                                  display: inline-block;
-                                  margin-top: 25px;
+                                border-left: 1px solid gray;
+                          		width: 3%;
+                          		display: inline-block;
+                            	height: 140px;
+                            	margin-top: 20px;
                           }
 
                   }
@@ -256,13 +257,13 @@
 	<body>
          <div class="employee">
                 <div class="book">
-                        <a href="/ind/book.php" class="btn btn-lg">Book an Appointment</a>
+                        <a href="/dagger/book.php" class="btn btn-lg">Book an Appointment</a>
 		</div>
 		<div class="logo">
-                        <a href="/ind/index.php"><img src="/images/tattoodoor.png" height="100px" width="100px"></a>
+                        <a href="/dagger/index.php"><img src="/images/tattoodoor.png" height="100px" width="100px"></a>
 		</div>
 		<div class="login">
-			<a href="/ind/welcome.php" class="btn btn-lg">Employee Login</a>
+			<a href="/dagger/welcome.php" class="btn btn-lg">Employee Login</a>
 		</div>
 	</div>
         <br>
@@ -270,6 +271,7 @@
 			<div class="wrapper">
                 <div class="col-md-12">
                     <center>
+                      <h1>Ink & Dagger Tattoo Company</h1>
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
 							<ol class="carousel-indicators">
@@ -346,14 +348,14 @@
                         <div class="footer">
                                 <div class="address">
                                         <h4 class="glyphicon glyphicon-map-marker"> Ink and Dagger Tattoo Company</h4>
-                                        <h5>1137 Bardstown Rd Ste 2</h5>
-                                        <h5>Louisville, KY 40204</h5>
+                                        <h5>2239 Bardstown Rd</h5>
+                                        <h5>Louisville, KY 40205</h5>
                                         <h5>(502) 614-8666</h5>
                                 </div>
                                 <div class="verticalline"></div>
                                 <div class="watermark">
                                         <h4>Powered by: </h4>
-                                        <a href="https://www.dieckmandesigns.com" target="_blank"><img src="/images/Dieckman Designs Logo.png" height="150px" width="150px"></a>
+                                        <a href="https://www.dieckmandesigns.com" target="_blank"><img src="/images/Dieckman Designs Logo.png" height="100px" width="100px"></a>
                                 </div>
                         </div>
 		</center>
