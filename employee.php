@@ -46,6 +46,7 @@
 			.container{
 				width: 100%;
 				padding: 20px;
+              	margin-top: 75px;
 			}
 			.wrapper{
 				width: 100%;
@@ -54,56 +55,33 @@
 			.appointments, .submit, .art{
 				width: 100%;
 			}
-
-			.footer{
-                width: 100%;
-				margin-top: 20px;
-				height: 200px;
-                background-image: url("/images/banner.png");
-                background-position: center;
-                background-repeat: no-repeat;
-                color: gray;
-            }
-			.address{
-                display: inline-block;
-                float: left;
-                text-align: center;
-                width: 45%;
-                padding: 30px;
-            }
-            .watermark{
-                display: inline-block;
-                float: right;
-                width: 45%;
-                text-align: center;
-            }
-            .verticalline {
-                border-left: 1px solid gray;
-                height: 150px;
-                width: 3%;
-                display: inline-block;
-                margin-top: 25px;
-            }
           	.employee{
                 width: 100%;
-                height: 150px;
+                height: 100px;
                 background-image: url("/images/banner.png");
                 background-position: center;
-                background-repeat: no-repeat;
+                background-repeat: repeat;
                 box-shadow: 4px 3px 8px 1px black;
-            }
-            .employee a{
-                color: gray;
-            }
-            .employee a:hover{
-                color: white;
+              	position: fixed;
+              	left: 0;
+              	right: 0;
+              	top: 0;
+              	z-index: 10;
             }
             .logo{
                 width: 100%;
-                display: inline-block;
                 text-align: center;
-                margin-top: 20px;
+                margin-top: 10px;
             }
+          h2{
+          		display: inline-block;
+            	margin: 15px;
+            	text-shadow: 2px 2px black;
+          }
+          #logout{
+          		display: inline-block;
+            	margin-left: 5px;
+          }
           	.col-md-12{
           		width: 100%;
               	margin: 25px 0;
@@ -112,6 +90,7 @@
             .col-md-12 h3, .col-md-12 a, .col-md-12 h2{
 				display: inline-block;
               	margin: 10px;
+              	color: red;
             }
           	.col-md-12 a{
               	margin-top: -5px;
@@ -119,23 +98,32 @@
             .table{
 				color: black;
               	background-color: lightgray;
-              	text-align: left;
             }
-            .table btn-danger{
-				text-align: center;
-            }
-            .submit label{
+          th, td{
+          	text-align: center;
+          }
+          .submit{
+          	width: 100%;
+          }
+          #file, #submit{
+          	background-color: transparent;
+          }
+          .submit label{
                  margin: 10px 0;
             }
             .form-group{
-				width: 50%;
+				width: 100%;
               	padding: 10px;
-              	text-align: center;
             }
+          .form-group label{
+          		color: red;
+          }
             .btn-primary{
 				margin: 20px 0;
               	padding: 10px;
               	width: 50%;
+              	text-align: center;
+              color: red;
             }
             .art{
 				width: 100%;
@@ -143,6 +131,7 @@
             }
             .art h3{
 				width: 100%;
+              color: red;
             }
           	.tattoo{
 				width: 25%;
@@ -157,6 +146,34 @@
 				-webkit-transform:scale(1.5);
 				transform:scale(1.5);
 			}
+          @media only screen and (max-width: 850px) {
+          		.btn-primary{
+              		width: 100%;
+            }
+            .tattoo{
+                    width: 100%;
+                }
+          }
+          @media only screen and (min-width: 850px) {
+          		.btn-primary{
+              		width: 80%;
+            }
+            .tattoo{
+                    width: 45%;
+                    display: inline-block;
+                    margin: 20px 0;
+                }
+          }
+          @media only screen and (min-width: 1200px) {
+          		.btn-primary{
+              		width: 50%;
+            }
+            .tattoo{
+                    width: 25%;
+                    display: inline-block;
+                    margin: 15px 20px;
+                }
+          }
 		</style>
 		<script type="text/javascript">
 			$(document).ready(function($){
@@ -167,11 +184,7 @@
 	<body>
       <div class="employee">
           <div class="logo">
-              	<a href="/dagger/index.php"><img src="/images/tattoodoor.png" height="100px" width="100px"></a>
-            <form action="reset.php" method="post">
-            	<input type="hidden" name="id" value="<?php echo $username; ?>">
-              	<button type="submit" name="new-password" class="btn btn-danger btn-lg">New Password?</button>
-            </form>
+              	<h2>Welcome <?php echo $username; ?>!</h2><a href="logout.php" id="logout" class="btn btn-danger btn-lg">Log Out</a>
           </div>
       </div>
 		<div class="container">
@@ -188,9 +201,6 @@
 							</h3>
 						</div>
 						<?php endif ?>
-                      	<div class="col-md-12">
-							<h2>Welcome <?php echo $username; ?>!</h2><a href="logout.php" class="btn btn-danger btn-lg">Log Out</a>
-                      	</div>
                       	<h3>Appointments</h3>
 						<table class='table table-hover table-responsive table-bordered table-striped text-nowrap'>
 							<thead>
@@ -212,7 +222,7 @@
 												<td>' . $row['phone'] . '</td>
 												<td>' . $row['email'] . '</td>
 												<td>' . $row['description'] . '</td>
-												<td><form class="form-inline" action="apptremove.php" method="post"><input type="hidden" name="id" value="' . $row['id'] . '"><button type="submit" id="submit" class="btn btn-danger btn-xs">X</button></form></td>
+												<td><form class="form-inline" action="apptremove.php" method="post"><input type="hidden" name="id" value="' . $row['id'] . '"><button type="submit" id="remove" class="btn btn-danger btn-xs">X</button></form></td>
 										</tr>';
 									}
 								?>
@@ -220,19 +230,19 @@
 						</table>
 					</div>
 					<div class="submit">
-						<h3>Add a picture to your album</h3>
+						<h3><b>Add a picture to your album</b></h3>
                       	<center>
                           <form action="albuminsert.php" method="post" enctype="multipart/form-data">
                               <div class="form-group">
                                   <label>JPG, JPEG, PNG, GIF, & PDF files are allowed.</label>
-                                  <input id="file" class="form-control" type="file" name="image">
-                                  <button type="submit" id="submit" class="btn btn-primary btn-lg">Submit</button>
+                                  <input id="file" class="btn btn-primary btn-lg" type="file" name="image">
+                                  <button type="submit" id="submit" class="btn btn-primary btn-lg"><b>Submit</b></button>
                               </div>
                           </form>
                       </center>
 					</div>
 					<div class="art">
-						<h3>Your Tattoo Gallery</h3>
+						<h3><b>Your Tattoo Gallery</b></h3>
 						<?php
 							$sql= "SELECT * FROM images WHERE artist = '$username' ORDER BY id DESC";
 							$result = mysqli_query($link,$sql);
@@ -245,21 +255,4 @@
 			</div>
 		</div>
 	</body>
-	<footer>
-		<center>
-            <div class="footer">
-                <div class="address">
-                    <h4 class="glyphicon glyphicon-map-marker"> Ink and Dagger Tattoo Company</h4>
-                    <h5>1137 Bardstown Rd Ste 2</h5>
-                    <h5>Louisville, KY 40204</h5>
-                    <h5>(502) 614-8666</h5>
-                </div>
-                <div class="verticalline"></div>
-                <div class="watermark">
-                    <h4>Powered by: </h4>
-                    <img src="/images/Dieckman Designs Logo.png" height="150px" width="150px">
-                </div>
-            </div>
-		</center>
-	</footer>
 </html>
