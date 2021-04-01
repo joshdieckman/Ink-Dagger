@@ -28,13 +28,22 @@
             .container{
                 width: 100%;
             }
+          	h1{
+          		color: red;
+            	margin: 15px 0;
+              text-shadow: 2px 2px black;
+          	}
 			.employee{
 				width: 100%;
-				height: 150px;
                 background-image: url("/images/banner.png");
                 background-position: center;
-                background-repeat: no-repeat;
+                background-repeat: repeat;
                 box-shadow: 4px 3px 8px 1px black;
+              	position: fixed;
+              	left: 0;
+              	right: 0;
+              	top: 0;
+              	z-index: 10;
 			}
             .employee a{
                 color: gray;
@@ -57,13 +66,13 @@
 				display: inline-block;
 				text-align: center;
 			}
-          .form-group{
-          	width: 50%;
-          }
           .form-control{
             width: 100%;
-          	margin: 10px 0;
+          	margin: 20px 0;
             font-size: 20px;
+          }
+          #name, #phone, #email, #select, #placement, #description{
+          	background-color: transparent;
           }
           #select{
           	font-size: 18px;
@@ -77,21 +86,31 @@
             margin: 10px 0;
             padding: 10px;
             font-size: 20px;
+            background-color: transparent;
+            color: red;
           }
           label{
-          	color: white;
+          	color: red;
             text-shadow: 2px 2px black;
           }
+          #name::placeholder,  #phone::placeholder, #email::placeholder, #placement::placeholder, #description::placeholder{
+  				color: red;
+  				opacity: 1; /* Firefox */
+			}
+			#name:-ms-input-placeholder, #phone:-ms-input-placeholder, #email:-ms-input-placeholder, #placement:-ms-input-placeholder, #description:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ 				color: red;
+			}
+			#name::-ms-input-placeholder,  #phone::-ms-input-placeholder, #email::-ms-input-placeholder, #placement::-ms-input-placeholder, #description::-ms-input-placeholder{ /* Microsoft Edge */
+ 				color: red;
+			}
           span{
-          	color: white;
+          	color: red;
           }
             .footer{
                 width: 100%;
-				margin-top: 20px;
-				height: 200px;
                 background-image: url("/images/banner.png");
                 background-position: center;
-                background-repeat: no-repeat;
+                background-repeat: repeat;
                 color: gray;
             }
             .address{
@@ -99,7 +118,6 @@
                 float: left;
                 text-align: center;
                 width: 45%;
-                padding: 30px;
             }
             .watermark{
                 display: inline-block;
@@ -109,20 +127,24 @@
             }
             .verticalline {
                 border-left: 1px solid gray;
-                height: 150px;
                 width: 3%;
                 display: inline-block;
-                margin-top: 25px;
             }
             @media only screen and (max-width: 768px) {
                 body{
                     font-size: 24px;
                 }
+              .container{
+                 margin-top: 250px;
+              }
                 .employee{
                     height: 250px;
                 }
+              .form-group{
+              	width: 100%;
+              }
                 .footer{
-                    height: 450px;
+                    height: 350px;
                 }
                 .address, .watermark{
                     width: 100%;
@@ -147,11 +169,17 @@
                 body{
                     font-size: 24px;
                 }
+              .container{
+                 margin-top: 250px;
+               }
                 .employee{
                     height: 250px;
                 }
+              	.form-group{
+              		width: 75%;
+              	}
                 .footer{
-                    height: 450px;
+                    height: 350px;
                 }
                 .address, .watermark{
                     width: 100%;
@@ -179,9 +207,15 @@
                 body{
                     font-size: 24px;
                 }
+              .container{
+                 margin-top: 125px;
+               }
                 .employee{
                     height: 125px;
                 }
+              	.form-group{
+              		width: 50%;
+              	}
                 .login, .book, .logo{
                     width: 32%;
                     display: inline-block;
@@ -193,33 +227,28 @@
                     margin: 15px 20px;
                 }
                 .footer{
-                    width: 100%;
-                    margin-top: 20px;
-                    height: 225px;
-                    background-image: url("/images/banner.png");
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    color: gray;
+                    height: 175px;
                 }
                 .address{
                     display: inline-block;
                     float: left;
                     text-align: center;
                     width: 45%;
-                    padding: 30px;
+                  	margin-top: 20px;
                 }
                 .watermark{
                     display: inline-block;
                     float: right;
                     width: 45%;
                     text-align: center;
+                  	margin-top: 20px;
                 }
                 .verticalline {
                     border-left: 1px solid gray;
-                    height: 175px;
                     width: 3%;
                     display: inline-block;
-                    margin-top: 25px;
+                    height: 140px;
+                    margin-top: 20px;
                 }
 
             }
@@ -230,13 +259,13 @@
 	<body>
          <div class="employee">
                 <div class="book">
-                        <a href="/ind/book.php" class="btn btn-lg">Book an Appointment</a>
+                        <a href="/dagger/book.php" class="btn btn-lg">Book an Appointment</a>
 		</div>
 		<div class="logo">
-                        <a href="/ind/index.php"><img src="/images/tattoodoor.png" height="100px" width="100px"></a>
+                        <a href="/dagger/index.php"><img src="/images/tattoodoor.png" height="100px" width="100px"></a>
 		</div>
 		<div class="login">
-			<a href="/ind/welcome.php" class="btn btn-lg">Employee Login</a>
+			<a href="/dagger/welcome.php" class="btn btn-lg">Employee Login</a>
 		</div>
 	</div>
         <br>
@@ -244,14 +273,15 @@
 			<div class="wrapper">
                 <div class="col-md-12">
                     <center>
+                      <h1>Book an Appointment</h1>
 						<form class="form-group" method="post" action="appointments.php">
-							<label>Name</label>
-							<input id="name" class="form-control" type="text" name="name" placeholder="First/Last Name" required>
-							<label>Phone</label>
+							<label class="pull-left">Name</label>
+							<input id="name" class="form-control" type="text" name="name" placeholder="Full Name" required>
+							<label class="pull-left">Phone</label>
 							<input id="phone" class="form-control" type="text" name="phone" placeholder="Phone" required>
-							<label>Email</label>
+							<label class="pull-left">Email</label>
 							<input id="email" class="form-control" type="text" name="email" placeholder="Email" required>
-                          	<label>Artist</label>
+                          	<label class="pull-left">Artist</label>
 							<select id="select" class="form-control" name="artist">
 								<option value="">Choose an Artist</option>
 								<?php
@@ -262,13 +292,13 @@
 									}
 								?>
 							</select>
-							<label>Placement</label>
-							<input id="placement" class="form-control" type="text" name="placement" placeholder="Which part of your body" required>
-							<label>Description</label>
-							<textarea id="description" class="form-control" type="text" maxLength="250" name="description" cols="5" rows="5" placeholder="Brief Description" required></textarea>
+							<label class="pull-left">Placement</label>
+							<input id="placement" class="form-control" type="text" name="placement" placeholder="Where would you like your new tattoo?" required>
+							<label class="pull-left">Description</label>
+							<textarea id="description" class="form-control" type="text" maxLength="250" name="description" cols="5" rows="5" placeholder="Please, give a brief description on what you would like." required></textarea>
 							<span id="chars" class="pull-left" style="margin: 5px 0 5px 5px;">250</span><span class="pull-left" style="margin: 5px 0 5px 0;">/250</span>
-							<button type="submit" id="submit" class="btn btn-primary">Submit</button>
-							<a href="/ind/index.php" class="btn btn-danger">Exit</a>
+                          <button type="submit" id="submit" class="btn btn-primary"><b>Submit</b></button>
+							<a href="/ind/index.php" class="btn btn-danger"><b>Exit</b></a>
 						</form>
 					</center>
 				</div>
@@ -294,7 +324,7 @@
 				<div class="verticalline"></div>
 				<div class="watermark">
 					<h4>Powered by: </h4>
-					<a href="https://www.dieckmandesigns.com" target="_blank"><img src="/images/Dieckman Designs Logo.png" height="150px" width="150px"></a>
+					<a href="https://www.dieckmandesigns.com" target="_blank"><img src="/images/Dieckman Designs Logo.png" height="100px" width="100px"></a>
 				</div>
             </div>
 		</center>
